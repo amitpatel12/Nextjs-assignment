@@ -14,15 +14,16 @@ const AddSchool = () => {
   
     try {
       const result = await axios.post('/api/school', data)
-      console.log(result);
+    
       if(result.status === 200){
         if(result?.data?.message){
           errorMessage(result?.data?.message)
         }
         else{
           successMessage()
+          reset()
         }
-        reset()
+     
       }
       
     } catch (error) {
